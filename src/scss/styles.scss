@@ -4,3 +4,12 @@
 header {
     background-color: $header-footer-color;
 }
+
+.btn-primary {
+    background-color: $primary;
+}
+
+.btn-secondary {
+    background-color: $primary;
+    border-radius: 25%;
+}
