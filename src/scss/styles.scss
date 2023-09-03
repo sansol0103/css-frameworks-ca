@@ -1,0 +1,15 @@
+@import "_variables.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+header {
+    background-color: $header-footer-color;
+}
+
+.btn-primary {
+    background-color: $primary;
+}
+
+.btn-secondary {
+    background-color: $primary;
+    border-radius: 25%;
+}

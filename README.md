@@ -1,2 +1,2 @@
 # css-frameworks-ca
-Replace this text with a description of your social media project.
+Welcome to Nanogram, the ultimate low-spec social media platform!
