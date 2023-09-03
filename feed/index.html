@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nanogram || Feed</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../dist/css/styles.css">
     <script
@@ -16,10 +16,10 @@
     ></script>
 </head>
 <body>
-    <header class="container">
+    <header class="container-fluid">
         <div class="d-flex flex-wrap justify-content-center py-3 mb-4">
-            <a class="d-flex align-items-center mb-md-0 me-md-auto me-3 text-dark text-decoration-none fs-3" href="index.html">Title</a>
-            <nav>
+            <a class="d-flex align-items-center mb-md-0 me-md-auto text-dark text-decoration-none fs-3 ms-2" href="index.html">Nanogram</a>
+            <nav class="me-3 navbar">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a class="nav-link" href="../index.html">Home</a>
@@ -35,7 +35,87 @@
         </div>
     </header>
     <main>
-        
+        <div class="container">
+            <div class="col-md-4">
+                <h1>Welcome to your feed</h1>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Search here...">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select">
+                        <option>Sort by latest</option>
+                        <option>Sort by popular</option>
+                        <option>Sort by upvotes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card mt-3 mb-3">
+                        <div class="card-body container d-flex">
+                            <div class="me-3">
+                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
+                            </div>
+                            <div>
+                                <h2>Lorem ipsum</h2>
+                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3 mb-3">
+                        <div class="card-body container d-flex">
+                            <div class="me-3">
+                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
+                            </div>
+                            <div>
+                                <h2>Lorem ipsum</h2>
+                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3 mb-3">
+                        <div class="card-body container d-flex">
+                            <div class="me-3">
+                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
+                            </div>
+                            <div>
+                                <h2>Lorem ipsum</h2>
+                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3 mb-3">
+                        <div class="card-body container d-flex">
+                            <div class="me-3">
+                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
+                            </div>
+                            <div>
+                                <h2>Lorem ipsum</h2>
+                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+                                <h2>Create new post</h2>
+                                <div>
+                                    <label for="postTitle" class="form-label">Post title</label>
+                                    <input type="text" id="postTitle" class="form-control">
+                                </div>
+                                <div>
+                                    <label for="content" class="form-label">Content</label>
+                                    <textarea name="Content" id="content" class="form-control" placeholder="Add your content here"></textarea>
+                                </div>
+                                <button class="btn btn-lg btn-secondary mt-3">Create new post</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
