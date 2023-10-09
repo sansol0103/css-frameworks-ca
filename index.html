@@ -41,7 +41,7 @@
                 <h1 class="my-5">Welcome to Nanogram!</h1>
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-control-md needs-validation" action="profile/index.html">
+                        <form class="form-control-md needs-validation" action="profile/index.html" id="loginForm">
                             <h2 class="h4 my-5">Enter your login information here</h2>
                             <div class="d-flex flex-column mb-3">
                                 <label for="email" class="form-label">Email address</label>
@@ -54,6 +54,7 @@
                                 <div class="form-text">Password must be 8 characters or longer</div>
                             </div>
                             <button class="btn btn-lg btn-primary" type="submit">Login</button>
+                            <a href="register/index.html" class="btn btn-lg btn-primary">New? Register here!</a>
                         </form>
                     </div>
                 </div>
@@ -78,5 +79,7 @@
             </div>
         </div>
     </footer>
+    <script type="module" src="js/urls.mjs" defer></script>
+    <script type="module" src="js/login.js" defer></script>
 </body>
 </html>
