@@ -54,7 +54,3 @@ async function registerUser(url, user) {
         console.log(error);
     }
 };
-
-// Email: sansol92975@stud.noroff.no
-// Username: sandersol
-// Password: Sandersol01
