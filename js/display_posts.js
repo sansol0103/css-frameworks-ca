@@ -32,15 +32,15 @@ function createPostHTML(post) {
     container.appendChild(card);
 
     const cardBody = document.createElement('div');
-    cardBody.classList.add('card-body', 'container', 'd-flex');
+    cardBody.classList.add('card-body', 'container');
     card.appendChild(cardBody);
 
     const imageContainer = document.createElement('div');
-    imageContainer.classList.add('me-3');
+    imageContainer.classList.add('col-12', 'col-md-6', 'mb-3');
     cardBody.appendChild(imageContainer);
 
     const image = document.createElement('img');
-    image.classList.add('img-thumbnail');
+    image.classList.add('img-fluid');
     image.src = post.media;
     imageContainer.appendChild(image);
 
