@@ -1,7 +1,17 @@
 const API_BASE_URL = 'https://api.noroff.dev';
-const postsURL = `${API_BASE_URL}/api/v1/social/posts`;
+const postsURL = `${API_BASE_URL}/api/v1/social/posts/`;
 
-async function getPosts(url) {
+// Get queryString
+
+const pageTitle = document.querySelector('title');
+
+const queryString = document.location.search;
+
+const params = new URLSearchParams(queryString);
+
+const postId = params.get('id');
+
+async function getPost(url) {
     try {
         const token = localStorage.getItem('accessToken');
         const data = {
@@ -11,24 +21,19 @@ async function getPosts(url) {
                 Authorization: `Bearer ${token}`,
             },
         };
-        const response = await fetch(url, data);
+        const response = await fetch(url + postId, data);
         const json = await response.json();
         console.log(json);
         return json;
     } catch (error) {
         console.log(error);
-    }
+    };
 };
 
-getPosts(postsURL);
+function createHTML(post) {
+    const container = document.querySelector('#post_container');
 
-// Create HTML
-
-function createPostHTML(post) {
-    const container = document.querySelector('#posts-container');
-
-    const card = document.createElement('a');
-    card.href = `post_specific.html?id=${post.id}`;
+    const card = document.createElement('div');
     card.classList.add('card', 'mt-3', 'mb-3');
     container.appendChild(card);
 
@@ -55,19 +60,13 @@ function createPostHTML(post) {
     const content = document.createElement('p');
     content.innerText = post.body;
     textContainer.appendChild(content);
+
+    pageTitle.innerText = post.title;
 };
 
-function createPosts(posts) {
-    for (let i = 0; i < 25; i++) {
-        createPostHTML(posts[i]);
-    }
+async function main() {
+    const post = await getPost(postsURL);
+    createHTML(post);
 };
 
-// Display posts
-
-async function displayPosts() {
-    const posts = await getPosts(postsURL);
-    createPosts(posts);
-};
-
-displayPosts();
+main();
