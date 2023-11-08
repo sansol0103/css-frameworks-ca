@@ -31,6 +31,7 @@ function displayUser(user) {
 
     const username = document.createElement('p');
     username.innerText = user.name;
+    username.classList.add('h2');
     userContainer.appendChild(username);
 
     if (user.avatar) {
@@ -46,15 +47,18 @@ function displayUser(user) {
     }
 
     const followers = document.createElement('p');
-    followers.innerText = "Followers; " + user._count.followers;
+    followers.innerText = "Followers: " + user._count.followers;
+    followers.classList.add('h3');
     userContainer.appendChild(followers);
 
     const following = document.createElement('p');
-    following.innerText = "Following; " + user._count.following;
+    following.innerText = "Following: " + user._count.following;
+    following.classList.add('h3');
     userContainer.appendChild(following);
 
     const posts = document.createElement('p');
-    posts.innerText = "Posts; " + user._count.posts;
+    posts.innerText = "Posts: " + user._count.posts;
+    posts.classList.add('h3');
     userContainer.appendChild(posts);
 
     pageTitle.innerText += user.name;
@@ -66,3 +70,12 @@ async function main() {
 }
 
 main();
+
+function logOut () {
+    localStorage.removeItem('accessToken');
+    window.location.href = "../index.html";
+};
+
+const logOutButton = document.querySelector('#logout_button');
+
+logOutButton.addEventListener('click', logOut);
