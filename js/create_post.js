@@ -1,4 +1,3 @@
-import { fetchAPI } from "./API/fetchAPI.mjs";
 import { postsURL } from "./urls.mjs";
 import { displayUserPosts } from "./display_user_posts.js";
 
@@ -55,3 +54,10 @@ createNewPostForm.addEventListener('submit', (event) => {
     createPost(data);
     window.location.reload();
 });
+
+async function fetchAPI(url, userData) {
+    const response = await fetch(url, userData);
+    const result = await response.json();
+
+    return result;
+};

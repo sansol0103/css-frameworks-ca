@@ -14,6 +14,8 @@
         src="https://kit.fontawesome.com/90b4883912.js"
         crossorigin="anonymous"
     ></script>
+    <script type="module" src="../js/profile.js" defer></script>
+    <script type="module" src="../js/create_post.js" defer></script>
 </head>
 <body>
     <header class="container-fluid">
@@ -34,6 +36,16 @@
     <main>
         <div class="container">
             <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Profile info</h2>
+                            <div class="d-flex m-auto justify-content-center" id="avatar_container"></div>
+                            <div id="user_container"></div>
+                        </div>
+                        <button class="btn btn-secondary mt-3" id="logout_button">Log out</button>
+                    </div>
+                </div>
                 <div class="col-md-8">
                     <div class="card">
                         <h1 class="mb-5 mt-3 ms-3">Showing your latest posts</h1>
@@ -48,17 +60,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2>Profile info</h2>
-                            <div class="d-flex m-auto justify-content-center" id="avatar_container"></div>
-                            <div id="user_container"></div>
-                        </div>
-                            <button class="btn btn-secondary mt-3" id="logout_button">Log out</button>
-                        </div>
-                    </div>
-                </div>
+            </div>
                 <div class="col-md-6 mt-3">
                     <div class="card">
                         <div class="card-body">
@@ -102,10 +104,5 @@
             </div>
         </div>
     </footer>
-    <script type="module" src="../js/profile.js" defer></script>
-    <script type="module" src="../js/urls.mjs" defer></script>
-    <script type="module" src="../js/create_post.js" defer></script>
-    <script type="module" src="../js/API/fetchAPI.mjs" defer></script>
-    <script type="module" src="../js/display_user_posts.js" defer></script>
 </body>
 </html>
