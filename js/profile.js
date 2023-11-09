@@ -1,11 +1,9 @@
-const API_BASE_URL = 'https://api.noroff.dev';
-const profilesURL = `${API_BASE_URL}/api/v1/social/profiles/`;
-
-const userId = localStorage.getItem('name');
+import { profilesURL } from "./urls.js";
+import { userId } from "./utils.js";
 
 const pageTitle = document.querySelector('title');
 
-async function getProfile(profilesURL) {
+async function getProfile(url) {
     try {
         const token = localStorage.getItem('accessToken');
         const data = {
@@ -15,15 +13,13 @@ async function getProfile(profilesURL) {
                 Authorization: `Bearer ${token}`,
             },
         };
-        const response = await fetch(profilesURL + userId, data);    
+        const response = await fetch(url + userId, data);    
         const user = await response.json();
         return user;
     } catch (error) {
         console.log(error);
     }
 };
-
-getProfile(profilesURL);
 
 function displayUser(user) {
     const userContainer = document.querySelector('#user_container');

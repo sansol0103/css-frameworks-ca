@@ -57,7 +57,7 @@ async function loginUser(url, loginDetails) {
             console.log('No token found');
         }
         localStorage.setItem("email", json.email);
-        localStorage.setItem("name", json.name);
+        localStorage.setItem("username", json.name);
         return json;
     } catch (error) {
         console.log(error);
