@@ -8,6 +8,7 @@ function createButtons() {
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('btn', 'btn-danger');
+    deleteButton.id = "delete_button";
     deleteButton.innerText = "Delete";
     buttonContainer.appendChild(deleteButton);
 };

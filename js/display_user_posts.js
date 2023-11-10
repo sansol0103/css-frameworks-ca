@@ -15,6 +15,7 @@ async function getPosts(url) {
         };
         const response = await fetch(url, data);
         const posts = await response.json();
+        console.log(posts);
         return posts;
     } catch (error) {
         console.log(error);
@@ -30,6 +31,7 @@ function displayPostsHTML(post) {
         const postsContainer = document.createElement('a');
         postsContainer.href = `post_specific.html?id=${post.id}`;
         postsContainer.classList.add('card', 'mt-3', 'mb-3');
+        postsContainer.id = post.id;
         postContainer.appendChild(postsContainer);
 
         const imageContainer = document.createElement('div');
