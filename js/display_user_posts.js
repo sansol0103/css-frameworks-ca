@@ -27,9 +27,14 @@ function displayPostsHTML(post) {
     if (post) {
         const postContainer = document.querySelector('#post_container');
 
+        const postsContainer = document.createElement('a');
+        postsContainer.href = `post_specific.html?id=${post.id}`;
+        postsContainer.classList.add('card', 'mt-3', 'mb-3');
+        postContainer.appendChild(postsContainer);
+
         const imageContainer = document.createElement('div');
         imageContainer.classList.add('me-3');
-        postContainer.appendChild(imageContainer);
+        postsContainer.appendChild(imageContainer);
 
         const image = document.createElement('img');
         image.classList.add('img-fluid');
@@ -37,7 +42,7 @@ function displayPostsHTML(post) {
         imageContainer.appendChild(image);
 
         const textContainer = document.createElement('div');
-        postContainer.appendChild(textContainer);
+        postsContainer.appendChild(textContainer);
 
         const title = document.createElement('h2');
         title.innerText = post.title;
