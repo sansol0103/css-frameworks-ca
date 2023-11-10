@@ -1,17 +1,6 @@
 import { postsURL } from "./urls.js";
 import { token } from "./utils.js";
-
-export function addDeleteButtonEventListener() {
-    const deleteButtons = document.querySelectorAll('#delete_button');
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', async function(event) {
-            const postId = event.target.getAttribute('data-id');
-            const url = `${postsURL}${postId}`;
-            await deletePost(url);
-            window.location.reload();
-        });
-    });
-};
+import { getQueryString } from "./utils.js";
 
 async function deletePost(url) {
     try {
@@ -22,10 +11,20 @@ async function deletePost(url) {
                 Authorization: `Bearer ${token}`,
             },
         };
-        const response = await fetch(url, data);
-        const result = await response.json();
-        console.log(result);
+        const response = await fetch(postsURL + id, data);
+        const post = await response.json();
+        return post;
     } catch (error) {
         console.log(error);
     }
 };
+
+function addDeleteButtonListener() {
+    const deleteButton = document.querySelector('#delete_button');
+    deleteButton.addEventListener('click', (event) => {
+        const postId = getQueryString();
+        deletePost(postId);
+    });
+};
+
+addDeleteButtonListener();
