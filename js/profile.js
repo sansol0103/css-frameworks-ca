@@ -1,5 +1,7 @@
 import { profilesURL } from "./urls.js";
 import { userId } from "./utils.js";
+import { displayUserPosts } from "./display_user_posts.js";
+import { addDeleteButtonEventListener } from "./delete-post.js";
 
 const pageTitle = document.querySelector('title');
 
@@ -75,3 +77,6 @@ function logOut () {
 const logOutButton = document.querySelector('#logout_button');
 
 logOutButton.addEventListener('click', logOut);
+
+displayUserPosts();
+addDeleteButtonEventListener();

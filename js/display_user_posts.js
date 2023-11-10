@@ -28,8 +28,7 @@ function displayPostsHTML(post) {
     if (post) {
         const postContainer = document.querySelector('#post_container');
 
-        const postsContainer = document.createElement('a');
-        postsContainer.href = `post_specific.html?id=${post.id}`;
+        const postsContainer = document.createElement('div');
         postsContainer.classList.add('card', 'mt-3', 'mb-3');
         postsContainer.id = post.id;
         postContainer.appendChild(postsContainer);
@@ -53,8 +52,18 @@ function displayPostsHTML(post) {
         const content = document.createElement('p');
         content.innerText = post.body;
         textContainer.appendChild(content);
+
+        const buttonContainer = document.createElement('div');
+        postsContainer.appendChild(buttonContainer);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('btn', 'btn-danger', 'me-3');
+        deleteButton.innerText = 'Delete';
+        deleteButton.id = 'delete_button';
+        deleteButton.setAttribute('data-id', post.id);
+        buttonContainer.appendChild(deleteButton);
     }
-}
+};
 
 function displayPosts(posts) {
     for (let i = 0; i < 25; i++) {
@@ -64,9 +73,7 @@ function displayPosts(posts) {
 
 // Display posts
 
-async function displayUserPosts() {
+export async function displayUserPosts() {
     const userPosts = await getPosts(postsURL);
     displayPosts(userPosts);
 };
-
-displayUserPosts();
