@@ -1,14 +1,12 @@
-// URLS and form parts declared
+import { registerURL } from './urls.js';
 
-const API_BASE_URL = 'https://api.noroff.dev';
-const registerURL = `${API_BASE_URL}/api/v1/social/auth/register`;
-
-const form = document.querySelector('#registerForm');
-const username = document.querySelector('#username');
-const email = document.querySelector('#email');
-const password = document.querySelector('#password');
-
-// Submits the user
+/**
+ * Function that submits the user
+ * ```js
+ * submitUser();
+ * ```
+ * @returns {Promise<void>} Promise object that represents the user
+ */
 
 async function submitUser() {
     const user = {
@@ -20,14 +18,10 @@ async function submitUser() {
     console.log(json);
 };
 
-// Listens for the submit event
-
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
     await submitUser();
 });
-
-// Registers the user
 
 /**
  * API call that registers a user
@@ -36,6 +30,7 @@ form.addEventListener('submit', async (event) => {
  * ```js
  * registerUser(registerURL, user);
  * ```
+ * @returns {Promise} Promise object that represents the registered user
  */
 
 async function registerUser(url, user) {

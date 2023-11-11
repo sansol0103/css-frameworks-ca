@@ -10,6 +10,16 @@ const titleInput = document.querySelector('#post_title');
 const bodyInput = document.querySelector('#post_body');
 const mediaInput = document.querySelector('#post_media');
 
+/** 
+ * API call that edits a post
+ * @param {string} url
+ * @param {any} postData
+ * ```js
+ * editPost(postsURL, postData);
+ * ```
+ * @returns {Promise} Promise object that represents the edited post
+*/
+
 editPostForm.addEventListener('submit', (event) => {
     event.preventDefault();
 

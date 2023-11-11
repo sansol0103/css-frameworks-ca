@@ -1,11 +1,23 @@
 import { profilesURL } from "./urls.js";
 import { userId } from "./utils.js";
+import { token } from "./utils.js";
 
 const postsURL = `${profilesURL}${userId}/posts/`;
 
+/**
+ * API call that gets posts. If the user is not authenticated, they will be redirected to the login page.
+ * @param {string} url
+ * ```js
+ * getPosts(postsURL);
+ * ```
+ * @returns {Promise} Promise object that represents the posts
+ */
+
 async function getPosts(url) {
+    if (!token) {
+        window.location.href = 'login.html';
+    };
     try {
-        const token = localStorage.getItem('accessToken');
         const data = {
             method: 'GET',
             headers: {
@@ -22,7 +34,14 @@ async function getPosts(url) {
     }
 };
 
-// Create HTML
+/** 
+ * Builds HTML for the page
+ * @param {object} post
+ * ```js
+ * createHTML(post);
+ * ```
+ * @returns {Promise<void>} Promise object that represents the HTML
+*/
 
 function displayPostsHTML(post) {
     if (post) {
@@ -59,15 +78,30 @@ function displayPostsHTML(post) {
     }
 };
 
+/** 
+ * Displays posts on the page
+ * @param {object} posts
+ * ```js
+ * displayPosts(posts);
+ * ```
+ * @returns {Promise<void>} Promise object that represents the HTML
+*/
+
 function displayPosts(posts) {
     for (let i = 0; i < 25; i++) {
         displayPostsHTML(posts[i]);
     }
 };
 
-// Display posts
+/** 
+ * Main function that builds the page
+ * ```js
+ * main();
+ * ```
+ * @returns {Promise<void>} Promise object that represents the main function
+*/
 
-export async function displayUserPosts() {
+export async function main() {
     const userPosts = await getPosts(postsURL);
     displayPosts(userPosts);
 };

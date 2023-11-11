@@ -1,5 +1,13 @@
 const buttonContainer = document.querySelector('#button_container');
 
+/**
+ * Creates buttons for the page
+ * ```js
+ * createButtons();
+ * ```
+ * @returns {Promise<void>} Promise object that represents the HTML
+ */
+
 function createButtons() {
     const editButton = document.createElement('button');
     editButton.classList.add('btn', 'btn-primary');

@@ -1,9 +1,20 @@
-const API_BASE_URL = 'https://api.noroff.dev';
-const postsURL = `${API_BASE_URL}/api/v1/social/posts`;
+import { postsURL } from './urls.js';
+import { token } from './utils.js';
+
+/** 
+ * API call that gets posts. If the user is not authenticated, they will be redirected to the login page.
+ * @param {string} url
+ * ```js
+ * getPosts(postsURL);
+ * ```
+ * @returns {Promise} Promise object that represents the posts
+*/
 
 async function getPosts(url) {
+    if (!token) {
+        window.location.href = 'login.html';
+    }
     try {
-        const token = localStorage.getItem('accessToken');
         const data = {
             method: 'GET',
             headers: {
@@ -20,9 +31,14 @@ async function getPosts(url) {
     }
 };
 
-getPosts(postsURL);
-
-// Create HTML
+/**
+ * Builds HTML for the page
+ * @param {object} post
+ * ```js
+ * createHTML(post);
+ * ```
+ * @returns {Promise<void>} Promise object that represents the HTML
+ */
 
 function createPostHTML(post) {
     const container = document.querySelector('#posts-container');
@@ -57,13 +73,28 @@ function createPostHTML(post) {
     textContainer.appendChild(content);
 };
 
+/**
+ * Creates HTML for all posts
+ * @param {object} posts
+ * ```js
+ * createPosts(posts);
+ * ```
+ * @returns {Promise<void>} Promise object that represents the HTML
+ */
+
 function createPosts(posts) {
     for (let i = 0; i < 25; i++) {
         createPostHTML(posts[i]);
     }
 };
 
-// Display posts
+/** 
+ * Main function that builds the page
+ * ```js
+ * main();
+ * ```
+ * @returns {Promise<void>} Promise object that represents the main function
+*/
 
 async function displayPosts() {
     const posts = await getPosts(postsURL);

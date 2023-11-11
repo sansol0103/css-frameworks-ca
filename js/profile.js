@@ -4,6 +4,16 @@ import { displayUserPosts } from "./display_user_posts.js";
 
 const pageTitle = document.querySelector('title');
 
+/** 
+ * API call that gets a user's profile. If the user is not authenticated, they will be redirected to the login page.
+ * @param {string} url
+ * @param {number} id
+ * ```js
+ * getProfile(profilesURL, id);
+ * ```
+ * @returns {Promise} Promise object that represents the user's profile
+*/
+
 async function getProfile(url) {
     try {
         const token = localStorage.getItem('accessToken');
@@ -21,6 +31,15 @@ async function getProfile(url) {
         console.log(error);
     }
 };
+
+/** 
+ * Builds HTML for the page
+ * @param {object} user
+ * ```js
+ * createHTML(user);
+ * ```
+ * @returns {Promise<void>} Promise object that represents the HTML
+*/
 
 function displayUser(user) {
     const userContainer = document.querySelector('#user_container');
@@ -61,12 +80,28 @@ function displayUser(user) {
     pageTitle.innerText += user.name;
 };
 
+/**
+ * Main function that builds the page
+ * ```js
+ * main();
+ * ```
+ * @returns {Promise<void>} Promise object that represents the main function
+ */
+
 async function main() {
     const user = await getProfile(profilesURL);
     displayUser(user);
 }
 
 main();
+
+/** 
+ * Logs the user out. Removes the access token from local storage and redirects the user to the login page.
+ * ```js
+ * logOut();
+ * ```
+ * @returns {Promise<void>} Promise object that represents the logout function
+*/
 
 function logOut () {
     localStorage.removeItem('accessToken');

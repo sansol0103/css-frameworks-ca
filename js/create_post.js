@@ -1,12 +1,21 @@
 import { postsURL } from "./urls.js";
+import { token } from "./utils.js";
 
 const createPostForm = document.querySelector('#create_post_form');
-
-const token = localStorage.getItem('accessToken');
 
 const newPostTitle = document.querySelector('#post_title');
 const newPostContent = document.querySelector('#post_content');
 const newPostImage = document.querySelector('#post_image');
+
+/**
+ * API call that creates a post
+ * @param {string} url
+ * @param {any} postData
+ * ```js
+ * createPost(postsURL, postData);
+ * ```
+ * @returns {Promise} Promise object that represents the created post
+ */
 
 createPostForm.addEventListener('submit', (event) => {
     event.preventDefault();

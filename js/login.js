@@ -1,11 +1,16 @@
-const API_BASE_URL = 'https://api.noroff.dev';
-const loginURL = `${API_BASE_URL}/api/v1/social/auth/login`;
+import { loginURL } from "./urls";
 
 const form = document.querySelector('#loginForm');
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 
-// Submits the user
+/** 
+ * API call that submits the user'
+ * ```js
+ * submitUser();
+ * ```
+ * @returns {Promise<void>} Promise object that represents the user
+*/
 
 async function submitUser() {
     const loginDetails = {
@@ -21,14 +26,10 @@ async function submitUser() {
     }
 };
 
-// Listens for the submit event
-
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
     await submitUser();
 });
-
-// Logs in the user
 
 /**
  * API call that logs in a user

@@ -1,19 +1,24 @@
-const API_BASE_URL = 'https://api.noroff.dev';
-const postsURL = `${API_BASE_URL}/api/v1/social/posts/`;
+import { postsURL } from './api.js';
+import { getQueryString } from './utils.js';
+import { token } from './utils.js';
 
-// Get queryString
-
-const pageTitle = document.querySelector('title');
-
-const queryString = document.location.search;
-
-const params = new URLSearchParams(queryString);
-
-const postId = params.get('id');
+/**
+ * API call that gets a post. If the user is not authenticated, they will be redirected to the login page.
+ * @param {string} url
+ * @param {number} id
+ * ```js
+ * getPost(postsURL, id);
+ * ```
+ * @returns {Promise} Promise object that represents the post
+ * ```js
+ */
 
 async function getPost(url) {
+    const postId = getQueryString('id');
+    if (!token) {
+        window.location.href = 'login.html';
+    };
     try {
-        const token = localStorage.getItem('accessToken');
         const data = {
             method: 'GET',
             headers: {
@@ -29,6 +34,15 @@ async function getPost(url) {
         console.log(error);
     };
 };
+
+/**
+ * Builds HTML for the page
+ * @param {object} post
+ * ```js
+ * createHTML(post);
+ * ```
+ * @returns {Promise<void>} Promise object that represents the HTML
+ */
 
 function createHTML(post) {
     const container = document.querySelector('#post_container');
@@ -63,6 +77,14 @@ function createHTML(post) {
 
     pageTitle.innerText = post.title;
 };
+
+/**
+ * Main function that builds the page
+ * ```js
+ * main();
+ * ```
+ * @returns {Promise<void>} Promise object that represents the main function
+ */
 
 async function main() {
     const post = await getPost(postsURL);
