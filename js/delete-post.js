@@ -2,7 +2,7 @@ import { postsURL } from "./urls.js";
 import { token } from "./utils.js";
 import { getQueryString } from "./utils.js";
 
-async function deletePost(url) {
+async function deletePost(id) {
     try {
         const data = {
             method: 'DELETE',
