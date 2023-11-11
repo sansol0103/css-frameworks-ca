@@ -1,6 +1,8 @@
-import { postsURL } from './api.js';
+import { postsURL } from './urls.js';
 import { getQueryString } from './utils.js';
 import { token } from './utils.js';
+
+const pageTitle = document.querySelector('title');
 
 /**
  * API call that gets a post. If the user is not authenticated, they will be redirected to the login page.
@@ -28,7 +30,6 @@ async function getPost(url) {
         };
         const response = await fetch(url + postId, data);
         const json = await response.json();
-        console.log(json);
         return json;
     } catch (error) {
         console.log(error);
@@ -75,7 +76,7 @@ function createHTML(post) {
     content.innerText = post.body;
     textContainer.appendChild(content);
 
-    pageTitle.innerText = post.title;
+    pageTitle.innerText += post.title;
 };
 
 /**

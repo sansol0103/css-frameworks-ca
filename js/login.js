@@ -1,4 +1,4 @@
-import { loginURL } from "./urls";
+import { loginURL } from "./urls.js";
 
 const form = document.querySelector('#loginForm');
 const email = document.querySelector('#email');

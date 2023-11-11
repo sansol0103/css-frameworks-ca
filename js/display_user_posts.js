@@ -27,7 +27,6 @@ async function getPosts(url) {
         };
         const response = await fetch(url, data);
         const posts = await response.json();
-        console.log(posts);
         return posts;
     } catch (error) {
         console.log(error);
@@ -101,7 +100,7 @@ function displayPosts(posts) {
  * @returns {Promise<void>} Promise object that represents the main function
 */
 
-export async function main() {
+export async function displayUserPosts() {
     const userPosts = await getPosts(postsURL);
     displayPosts(userPosts);
 };
