@@ -14,6 +14,8 @@
         src="https://kit.fontawesome.com/90b4883912.js"
         crossorigin="anonymous"
     ></script>
+    <script type="module" src="../js/profile.js" defer></script>
+    <script type="module" src="../js/create_post.js" defer></script>
 </head>
 <body>
     <header class="container-fluid">
@@ -34,44 +36,38 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
-                        <h1 class="mb-5 mt-3 ms-3">Showing latest posts</h1>
-                        <div class="card-body container d-flex">
-                            <div class="me-3">
-                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
-                            </div>
-                            <div>
-                                <h2>Lorem ipsum</h2>
-                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
                             <h2>Profile info</h2>
                             <div class="d-flex m-auto justify-content-center" id="avatar_container"></div>
-                            <div id="username"></div>
-                            <div class="d-flex" id="user_container"></div>
+                            <div id="user_container"></div>
                         </div>
-                            <a href="../index.html" class="btn btn-secondary mt-3">Log out</a>
-                        </div>
+                        <button class="btn btn-secondary mt-3" id="logout_button">Log out</button>
                     </div>
                 </div>
-                <div class="col-md-4 mt-3">
+                <div class="col-md-8">
+                    <div class="card" id="post_container">
+                        <h1 class="mb-5 mt-3 ms-3">Showing your latest posts</h1>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-6 mt-3">
                     <div class="card">
                         <div class="card-body">
-                            <form>
+                            <form id="create_post_form">
                                 <h2>Create new post</h2>
                                 <div>
                                     <label for="postTitle" class="form-label">Post title</label>
-                                    <input type="text" id="postTitle" class="form-control">
+                                    <input type="text" id="post_title" class="form-control" placeholder="Post title">
                                 </div>
                                 <div>
                                     <label for="content" class="form-label">Content</label>
-                                    <textarea name="Content" id="content" class="form-control" placeholder="Add your content here"></textarea>
+                                    <textarea name="Content" id="post_content" class="form-control" placeholder="Add your content here (Optional)"></textarea>
+                                </div>
+                                <div>
+                                    <label for="image" class="form-label"></label>
+                                    <input type="text" id="post_image" class="form-control" placeholder="Add a link to an image (Optional)">
                                 </div>
                                 <button class="btn btn-lg btn-secondary mt-3">Create new post</button>
                             </form>
@@ -99,7 +95,5 @@
             </div>
         </div>
     </footer>
-    <script type="module" src="../js/profile.js" defer></script>
-    <script type="module" src="../js/urls.mjs" defer></script>
 </body>
 </html>
