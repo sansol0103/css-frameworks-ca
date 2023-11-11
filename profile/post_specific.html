@@ -42,13 +42,14 @@
         <div id="edit_modal" class="modal-dialog">
             <div class="modal-content">
                 <span id="edit_post_id" class="post-id"></span>
-                <span id="edit_close_modal_button" class="close"></span>
-                <form action="" id="edit_post_form">
+                <span id="close_modal_button" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <form id="edit_post_form">
                     <h2 id="modal_title">Title:</h2>
-                    <input type="text" id="edit_title" placeholder="Put new title here">
+                    <input type="text" id="post_title" placeholder="Put new title here">
                     <h3>Edit body:</h3>
-                    <textarea name="edit-body" id="edit_body" placeholder="Update the body of the post here"></textarea>
-                    <input type="text" id="edit_media" placeholder="Put new image link here">
+                    <textarea name="edit-body" id="post_body" placeholder="Update the body of the post here"></textarea>
+                    <h3>Image:</h3>
+                    <input type="text" id= "post_media" placeholder="Put new image link here">
                     <button id="update_post_button">Update post</button>
                 </form>
             </div>
