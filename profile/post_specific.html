@@ -17,6 +17,7 @@
         <script type="module" src="../js/display_post.js" defer></script>
         <script type="module" src="../js/handle_buttons.js" defer></script>
         <script type="module" src="../js/delete-post.js" defer></script>
+        <script type="module" src="../js/edit_post.js" defer></script>
     </head>
 <body>
     <header class="container-fluid">
@@ -38,6 +39,20 @@
         <a href="index.html">Back to profile page</a>
         <div id="post_container"></div>
         <div id="button_container"></div>
+        <div id="edit_modal" class="modal-dialog">
+            <div class="modal-content">
+                <span id="edit_post_id" class="post-id"></span>
+                <span id="edit_close_modal_button" class="close"></span>
+                <form action="" id="edit_post_form">
+                    <h2 id="modal_title">Title:</h2>
+                    <input type="text" id="edit_title" placeholder="Put new title here">
+                    <h3>Edit body:</h3>
+                    <textarea name="edit-body" id="edit_body" placeholder="Update the body of the post here"></textarea>
+                    <input type="text" id="edit_media" placeholder="Put new image link here">
+                    <button id="update_post_button">Update post</button>
+                </form>
+            </div>
+        </div>
     </main>
     <footer class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">

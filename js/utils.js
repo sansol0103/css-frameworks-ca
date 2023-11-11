@@ -5,6 +5,5 @@ export function getQueryString() {
     const queryString = window.location.search;
     const params = new URLSearchParams(queryString);
     const postId = params.get('id');
-    console.log(postId);
     return postId;
 };

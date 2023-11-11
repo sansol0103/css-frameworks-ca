@@ -2,14 +2,18 @@ import { postsURL } from "./urls.js";
 import { token } from "./utils.js";
 import { getQueryString } from "./utils.js";
 
-async function deletePost(id) {
+async function editPost(id) {
     try {
         const data = {
-            method: 'DELETE',
+            method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
             },
+            body: JSON.stringify({
+                title: title.value,
+                body: body.value,
+            }),
         };
         const response = await fetch(postsURL + id, data);
         const post = await response.json();
@@ -17,14 +21,4 @@ async function deletePost(id) {
     } catch (error) {
         console.log(error);
     }
-};
-
-function addDeleteButtonListener() {
-    const deleteButton = document.querySelector('#delete_button');
-    deleteButton.addEventListener('click', (event) => {
-        const postId = getQueryString();
-        deletePost(postId);
-    });
-};
-
-addDeleteButtonListener();
+}
