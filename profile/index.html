@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanogram || Profile</title>
+    <title>Nanogram || </title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../dist/css/styles.css">
     <script
@@ -14,16 +14,15 @@
         src="https://kit.fontawesome.com/90b4883912.js"
         crossorigin="anonymous"
     ></script>
+    <script type="module" src="../js/profile.js" defer></script>
+    <script type="module" src="../js/create_post.js" defer></script>
 </head>
 <body>
     <header class="container-fluid">
         <div class="d-flex flex-wrap justify-content-center py-3 mb-4">
-            <a class="d-flex align-items-center mb-md-0 me-md-auto text-dark text-decoration-none fs-3 ms-2" href="index.html">Nanogram</a>
+            <a class="d-flex align-items-center mb-md-0 me-md-auto text-dark text-decoration-none fs-3 ms-2" href="../feed/index.html">Nanogram</a>
             <nav class="me-3 navbar">
                 <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../feed/index.html">Feed</a>
                     </li>
@@ -37,78 +36,41 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
-                        <h1 class="mb-5 mt-3 ms-3">Showing latest posts</h1>
-                        <div class="card-body container d-flex">
-                            <div class="me-3">
-                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
-                            </div>
-                            <div>
-                                <h2>Lorem ipsum</h2>
-                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
-                            </div>
-                        </div>
-                        <div class="card-body container d-flex">
-                            <div class="me-3">
-                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
-                            </div>
-                            <div>
-                                <h2>Lorem ipsum</h2>
-                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
-                            </div>
-                        </div>
-                        <div class="card-body container d-flex">
-                            <div class="me-3">
-                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
-                            </div>
-                            <div>
-                                <h2>Lorem ipsum</h2>
-                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
-                            </div>
-                        </div>
-                        <div class="card-body container d-flex">
-                            <div class="me-3">
-                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
-                            </div>
-                            <div>
-                                <h2>Lorem ipsum</h2>
-                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
-                            </div>
-                        </div>
-                        <div class="card-body container d-flex">
-                            <div class="me-3">
-                                <img class= "img-thumbnail" src="../images/placeholder.jpg" alt="">
-                            </div>
-                            <div>
-                                <h2>Lorem ipsum</h2>
-                                <p>nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
                             <h2>Profile info</h2>
-                            <div class="col-md-6">
-                                <img class= "img-thumbnail" src="../images/charlesdeluvio-K4mSJ7kc0As-unsplash.jpg" alt="Picture of a pug wearing a jacket">
-                            </div>
-                            <div>
-                                <div class="mb-2"><strong>Name: </strong>Sander</div>
-                                <div class="mb-3"><strong>Username: </strong>ssolberg01</div>
-                            </div>
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex m-auto justify-content-center" id="avatar_container"></div>
+                            <div id="user_container"></div>
+                        </div>
+                        <button class="btn btn-secondary mt-3" id="logout_button">Log out</button>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card" id="post_container">
+                        <h1 class="mb-5 mt-3 ms-3">Showing your latest posts</h1>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-6 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="create_post_form">
+                                <h2>Create new post</h2>
                                 <div>
-                                    <div class="mb-1">Followers</div>
-                                    <div>294</div>
+                                    <label for="postTitle" class="form-label">Post title</label>
+                                    <input type="text" id="post_title" class="form-control" placeholder="Post title">
                                 </div>
                                 <div>
-                                    <div class="mb-1">Following</div>
-                                    <div>645</div>
+                                    <label for="content" class="form-label">Content</label>
+                                    <textarea name="Content" id="post_content" class="form-control" placeholder="Add your content here (Optional)"></textarea>
                                 </div>
-                            </div>
-                            <button class="btn btn-secondary mt-3">Follow!</button>
+                                <div>
+                                    <label for="image" class="form-label"></label>
+                                    <input type="text" id="post_image" class="form-control" placeholder="Add a link to an image (Optional)">
+                                </div>
+                                <button class="btn btn-lg btn-secondary mt-3">Create new post</button>
+                            </form>
                         </div>
                     </div>
                 </div>

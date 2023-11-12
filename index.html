@@ -15,24 +15,12 @@
         src="https://kit.fontawesome.com/90b4883912.js"
         crossorigin="anonymous"
     ></script>
+    <script type="module" src="js/login.js" defer></script>
 </head>
 <body>
     <header class="container-fluid">
         <div class="d-flex flex-wrap justify-content-center py-3 mb-4">
             <a class="d-flex align-items-center mb-md-0 me-md-auto text-dark text-decoration-none fs-3 ms-2" href="index.html">Nanogram</a>
-            <nav class="me-3 navbar">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="feed/index.html">Feed</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile/index.html">Profile</a>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </header>
     <main class="container">
@@ -41,7 +29,7 @@
                 <h1 class="my-5">Welcome to Nanogram!</h1>
                 <div class="card">
                     <div class="card-body">
-                        <form class="form-control-md needs-validation" action="profile/index.html">
+                        <form class="form-control-md needs-validation" action="profile/index.html" id="loginForm">
                             <h2 class="h4 my-5">Enter your login information here</h2>
                             <div class="d-flex flex-column mb-3">
                                 <label for="email" class="form-label">Email address</label>
@@ -54,6 +42,7 @@
                                 <div class="form-text">Password must be 8 characters or longer</div>
                             </div>
                             <button class="btn btn-lg btn-primary" type="submit">Login</button>
+                            <a href="register/index.html" class="btn btn-lg btn-primary">New? Register here!</a>
                         </form>
                     </div>
                 </div>

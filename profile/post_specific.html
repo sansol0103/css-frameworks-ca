@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nanogram || </title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../dist/css/styles.css">
+        <script
+            src="https://kit.fontawesome.com/b318972c4d.js"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://kit.fontawesome.com/90b4883912.js"
+            crossorigin="anonymous"
+        ></script>
+        <script type="module" src="../js/display_post.js" defer></script>
+        <script type="module" src="../js/handle_buttons.js" defer></script>
+        <script type="module" src="../js/delete-post.js" defer></script>
+        <script type="module" src="../js/edit_post.js" defer></script>
+    </head>
+<body>
+    <header class="container-fluid">
+        <div class="d-flex flex-wrap justify-content-center py-3 mb-4">
+            <a class="d-flex align-items-center mb-md-0 me-md-auto text-dark text-decoration-none fs-3 ms-2" href="../feed/index.html">Nanogram</a>
+            <nav class="me-3 navbar">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../feed/index.html">Feed</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Profile</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <a href="index.html">Back to profile page</a>
+        <div id="post_container"></div>
+        <div id="button_container"></div>
+        <div id="edit_modal" class="modal-dialog">
+            <div class="modal-content">
+                <span id="edit_post_id" class="post-id"></span>
+                <span id="close_modal_button" class="close"><i class="fa-solid fa-xmark"></i></span>
+                <form id="edit_post_form">
+                    <h2 id="modal_title">Title:</h2>
+                    <input type="text" id="post_title" placeholder="Put new title here">
+                    <h3>Edit body:</h3>
+                    <textarea name="edit-body" id="post_body" placeholder="Update the body of the post here"></textarea>
+                    <h3>Image:</h3>
+                    <input type="text" id= "post_media" placeholder="Put new image link here">
+                    <button id="update_post_button">Update post</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+            <div class="col-md-4 d-flex align-items-center">
+                <p class="mb-md-0 text-muted">Copyright &copy;</p>
+            </div>
+            <div class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <a class="ms-3 text-decoration-none fs-4" href="https://instagram.com"
+                    ><i class="fa-brands fa-instagram text-dark"></i
+                ></a>
+                <a class="ms-3 text-decoration-none fs-4" href="https://facebook.com"
+                    ><i class="fa-brands fa-facebook text-dark"></i
+                ></a>
+                <a class="ms-3 text-decoration-none fs-4" href="https://twitter.com"
+                    ><i class="fa-brands fa-twitter text-dark"></i
+                ></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
